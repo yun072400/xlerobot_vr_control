@@ -1,0 +1,75 @@
+# LeRobot Dataset Recording Configuration
+# VR 텔레오퍼레이션을 통한 SO100 로봇 데이터셋 기록 설정
+
+dataset:
+  # 데이터셋 저장소 ID (예: username/dataset_name)
+  repo_id: "ranggae/so100_vr_record"
+
+  # 작업 이름
+  task_name: "SO100_VR_teleoperation"
+  
+  # 작업 설명 (어떤 작업을 수행했는지 기록)
+  single_task: "VR teleoperation task"
+  
+  # 저장 경로 (null이면 HuggingFace 캐시 사용)
+  # 예: "/home/choyunsang/Dataset"
+  root: "/home/choyunsang/Dataset"
+  
+  # 프레임 레이트 (fps)
+  fps: 30
+  
+  # 한 에피소드 기록 시간 (초)
+  episode_time_s: 60
+  
+  # 에피소드 간 리셋 시간 (초)
+  reset_time_s: 5
+  
+  # 기록할 총 에피소드 수
+  num_episodes: 5
+  
+  # 비디오 인코딩 사용 여부
+  video: true
+  
+  # HuggingFace Hub에 푸시할지 여부
+  push_to_hub: false
+
+# 이미지 저장 설정
+image_writer:
+  # 이미지 저장 프로세스 수 (0이면 스레드만 사용)
+  num_processes: 0
+  
+  # 카메라당 이미지 저장 스레드 수
+  threads_per_camera: 4
+  
+  # 배치 인코딩 크기 (1이면 즉시 인코딩)
+  batch_encoding_size: 1
+
+# 로봇 설정
+robot:
+  # 로봇 연결 포트
+  port: "/dev/ttyACM0"
+  
+  # 도 단위 사용 여부
+  use_degrees: true
+
+# VR 설정
+vr:
+  # VR 헤드셋 연결 대기 시간 (초)
+  connection_timeout: 60
+  
+  # HTTPS 웹 서버 포트
+  https_port: 8443
+  
+  # WebSocket 서버 포트
+  websocket_port: 8442
+
+# 제어 설정
+control:
+  # P 제어 게인
+  kp: 0.5
+  
+  # 제어 루프 주파수 (Hz)
+  control_frequency: 30
+
+# 연결 설정
+port: "/dev/ttyACM1" 
