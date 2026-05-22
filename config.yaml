@@ -30,6 +30,21 @@ dataset:
   # 비디오 인코딩 사용 여부
   video: true
   
+  # 스트리밍 비디오 인코딩 (실시간 인코딩, 성능 향상)
+  streaming_encoding: true
+  
+  # 비디오 인코더 스레드 수
+  encoder_threads: 2
+  
+  # 비디오 코덱 (libsvtav1, h264, hevc, auto)
+  vcodec: "auto"
+  
+  # 비디오 인코딩 배치 크기
+  video_encoding_batch_size: 1
+  
+  # 인코더 큐 최대 크기
+  encoder_queue_maxsize: 30
+  
   # HuggingFace Hub에 푸시할지 여부
   push_to_hub: false
 
@@ -46,11 +61,27 @@ image_writer:
 
 # 로봇 설정
 robot:
+  # 로봇 타입
+  type: "so100_follower"
+  
+  # 로봇 ID
+  id: "robot_right_arm"
+  
   # 로봇 연결 포트
   port: "/dev/ttyACM0"
   
   # 도 단위 사용 여부
   use_degrees: true
+  
+  # 카메라 설정
+  cameras:
+    right:
+      type: "opencv"
+      index_or_path: "/dev/video0"
+      width: 640
+      height: 480
+      fps: 30
+  use_videos: false  # 비디오 대신 이미지 저장 여부
 
 # VR 설정
 vr:
@@ -72,4 +103,4 @@ control:
   control_frequency: 30
 
 # 연결 설정
-port: "/dev/ttyACM1" 
+port: "/dev/ttyACM0" 
