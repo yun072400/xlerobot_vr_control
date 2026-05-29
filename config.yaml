@@ -77,11 +77,17 @@ robot:
   cameras:
     right:
       type: "opencv"
-      index_or_path: "/dev/video0"
+      index_or_path: "/dev/video2"
       width: 640
       height: 480
       fps: 30
-  use_videos: false  # 비디오 대신 이미지 저장 여부
+    head:
+      type: "opencv"
+      index_or_path: "/dev/video4"
+      width: 640
+      height: 480
+      fps: 30
+  use_videos: false  # 이미지 대신 비디오 저장 여부
 
 # VR 설정
 vr:
