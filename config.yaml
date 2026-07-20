@@ -12,8 +12,8 @@ dataset:
   single_task: "VR teleoperation task"
   
   # 저장 경로 (null이면 HuggingFace 캐시 사용)
-  # 예: "/home/choyunsang/Dataset"
-  root: "/home/choyunsang/Dataset"
+  # 예: "/home/username/Dataset"
+  root: "/home/username/Dataset"
   
   # 프레임 레이트 (fps)
   fps: 10
